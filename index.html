@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--- the icons-->
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/iconoir-icons/iconoir@main/css/iconoir.css"
+    />
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/center.css">
+    
+    <title>Valdotorium</title>
+</head>
+<body>
+    <!-- header imported from main page-->
+    <div id = "header">
+        <span>
+        <a href="index.html"><h1 id="NAME">Valesiantyper</h1></a>
+        <div id="headerIcons">
+        <fieldset id="projectsFieldset">
+        <a href="https://valdotorium.github.io"><img src="svg/home.svg" class="icon" alt="INFO" id = "projectsIcon"></a>
+        <p class="alt">MAIN PAGE</p>
+        </fieldset>
+        <fieldset id="repoFielset">
+        <a href="https://github.com/Valdotorium/Numbers-Converter"><img src="svg/repo.svg" class="icon" alt="REPOSITORY" id="repoIcon"></a>
+        <p class="alt">REPOSITORY</p>
+        </fieldset>
+        <fieldset id="gitFieldset">
+        <a href="https://github.com/Valdotorium" ><img src="img/github-mark.png" class="icon" alt="MY GITHUB" id="gitIcon"></a>
+        <p class="alt">VALDOTORIUM</p>
+        </fieldset>
+        </div>
+        </span>
+
+        <script src="js/header_anim.js"></script>
+        <script src="js/show_alts.js"></script>
+    </div>
+    <div id="center">
+        <div id="textbox"><label for="input">Input Syllables</label><input type="text" id="text" title="input number or equation"></div>
+        <canvas id="canvas" width="1100" height="500"></canvas>
+        <script src="js/exec.js"></script>
+    </div>
+</body>
+</html>

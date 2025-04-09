@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+#center{
+    padding:10vmax;
+    font-family: Roboto Mono;
+    font-size: 6vmin;
+    background-color: #323642;
+    width:80vmax;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;    
+    border: #101015;
+}
+
+#text{
+    font-family: Roboto Mono;
+    margin: 0;
+    padding: 0;
+    font-size: 6vmin;
+    background-color: #424860;
+    width:80vmax;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;    
+    border: #101015;
+    border-radius: 1vmax;
+    align-content: center;
+    text-align: center;
+    color: #BBBBD5;
+}
+#input{
+    font-family: Roboto Mono;
+    margin: 0;
+    padding: 0;
+    font-size: 6vmin;
+    background-color: #283236;
+    width: 70vmax;
+    margin:5vmax;
+    color: #BBBBD5;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;    border-radius: 1vmax;
+    border: #101015;
+}
+#controls{
+    font-family: Roboto Mono;
+    margin-top: 5vmax;
+    
+    font-size: 2vmax;
+    background-color: #424860;
+    width:80vmax;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;    
+    border: #101015;
+    border-radius: 1vmax;
+    align-content: center;
+    text-align: center;
+    color: #BBBBD5;
+}
+#convert{
+    font-family: Roboto Mono;
+    font-size: 2vmax;
+    background-color: #424860;
+    box-shadow: rgba(50, 50, 93, 0.5) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;    
+    margin:2vmax;
+    width:70vmax;
+    border:none;
+    border: #101015;
+    border-radius: 1vmax;
+}

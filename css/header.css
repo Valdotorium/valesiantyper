@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+iframe{
+    width: 60vw;
+    height: 20vw
+    }
+body, html{
+    overflow: hidden;
+    overflow-y: scroll;
+    max-height: 100%;
+    max-width: 100%;
+    background-color: #283236;
+    min-width: 250px;
+    min-height: 250px;
+
+}
+#header{
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;    margin-left: 0px;
+    margin-right: 0px;
+    padding-top: 4vmin;
+    width: 100vw;
+    min-width: 250px;
+    max-height:35vh;
+    display: inline-block;
+    background-color: #e5d496;
+}
+
+#header h1{
+    display: inline;
+    float: none;
+
+}
+#header a{
+    color: #212121;
+    text-decoration: none;
+    font-size: 4vh;
+}
+.icon {
+    width: 8vmin;
+    height: 8vmin;
+
+}
+#header fieldset:hover  .icon{
+    height: 5vmin;
+    width: 5vmin;
+    margin-left: 1.5vmin;
+    margin-right: 1.5vmin;
+
+    animation: minimize 250ms ease-in-out;
+}
+h1, legend{
+    font-family: Roboto Mono;
+    margin: 0;
+    padding: 0;
+    font-size: 6vmin;
+    margin-left: 2vw;
+    text-align: center;
+}
+#headerIcons{
+    display: inline;
+
+}
+#header fieldset {
+    display: inline;
+    padding: none;
+    margin-right: 2vw;
+    float: right;
+    border:none
+}
+
+@media only screen and (min-height: 268vw) {
+    /* For mobile phones: */
+    #header div{
+        display: none;
+    }
+    .alt{
+        display: none;
+    }
+    #headerIcons{
+        width:100vw;
+        display: inline-block;
+        align-items: center;
+    
+    }
+    #header h1{
+        display: inline-block;
+        width:100vw;
+        font-size: 7vmin;
+    }
+    #header{
+        text-align: center;
+        align-content: center;
+    }
+    li div h5{
+        display: none;
+    }
+    li div img{
+        float: none;
+    }
+    details{
+        padding: 2.5vh;
+        margin-top: 3.5vh;
+    }
+
+  }
+  @media only screen and (min-height: 80vw) {
+    /* For mobile phones: */
+    #header div{
+        display: inline-block;
+        margin-bottom: 1vw;
+    }
+    .alt{
+        display: none;
+    }
+    #headerIcons{
+        width:100vw;
+        display: inline-block;
+        align-items: center;
+    
+    }
+    #header fieldset {
+        display: inline;
+        float: none;
+        padding-left: 6vmin;
+
+    }
+    #header h1{
+        display: inline-block;
+        width:100vw;
+    }
+    #header{
+        text-align: center;
+        align-content: center;
+    }
+    #header fieldset:hover  .icon{
+        height: 6vmin;
+        width:6vmin;
+        margin-left: 1vmin;
+        margin-right: 1vmin;
+    
+        animation: none
+    }}
