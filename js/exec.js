@@ -1,3 +1,5 @@
+import {drawSymbolTemplates} from "./draw.js";
+
 function lettersToNumbers(letters) {
             
     let numbers = [];
@@ -67,7 +69,7 @@ function numbersToSymbolTemplates(numbers) {
         symbolTemplate.groupedNumbers.push([numbers[i][0]]);
         for (let j = 1; j < numbers[i].length; j++) {
             //group the numbers by tens
-            if(Math.floor(numbers[i][j] / 10) === Math.floor(numbers[i][j - 1] / 10)) {
+            if(Math.floor(numbers[i][j] / 10) === Math.floor(numbers[i][j - 1] / 10) && symbolTemplate.groupedNumbers[symbolTemplate.groupcount - 1].length < 3) {
                 symbolTemplate.groupedNumbers[symbolTemplate.groupcount - 1].push(numbers[i][j]);
             } else {
                 symbolTemplate.groupedNumbers.push([numbers[i][j]]);
@@ -103,11 +105,13 @@ function translateStringToSymbols(string) {
             syllables.push(" ");
         }
     }
+    //remove empty syllables
+    syllables = syllables.filter(syllable => syllable !== "");
 
-    console.log(syllables);
     let numbers = lettersToNumbers(syllables)
     let  symbolTemplates = numbersToSymbolTemplates(numbers);
     console.log(symbolTemplates);
+    return symbolTemplates;
 
 }
 
@@ -127,6 +131,6 @@ textBox.oninput = function() {
     ctx.rect(0,0 , canvasWidth, canvasHeight);
     ctx.fillStyle = "white";
     ctx.fill();
-    console.log(textBox.value);
-    translateStringToSymbols(textBox.value)
+    let symbolTemplates = translateStringToSymbols(textBox.value)
+    drawSymbolTemplates(symbolTemplates, ctx);
 }
