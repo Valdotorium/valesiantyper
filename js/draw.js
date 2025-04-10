@@ -73,13 +73,14 @@ function strokeOnes(symbolTemplate, canvas, x, y, width, height) {
     let groupedNumbers = symbolTemplate.groupedNumbers;
     let strokeHeights = [];
     let strokeDirections = [];
+    let symbols = [];
 
     if (groupcount === 0) {
         return;
     }
     //distribute the letters on the y axis
     if (groupcount == 2){
-        for (let i = 0; i < groupcount; i++){
+        for (let i = 0; i < groupedNumbers.length; i++){
             let group = groupedNumbers[i];
             console.log(group);
             if (group.length == 1){
@@ -94,11 +95,15 @@ function strokeOnes(symbolTemplate, canvas, x, y, width, height) {
                 strokeHeights.push(30);
                 strokeHeights.push(10);
             }
+            for(let j = 0; j < group.length; j++){
+                let symbol = group[j] % 10;
+                symbols.push(symbol);
+            }
         }
     }
     if (groupcount == 4){
-        for (i = 0; i < groupcount; i++){
-            group = groupedNumbers[i];
+        for (let i = 0; i < groupedNumbers.length; i++){
+            let group = groupedNumbers[i];
             if(i < 2){
                 if (group.length == 1){
                     strokeHeights.push(45);
@@ -127,6 +132,10 @@ function strokeOnes(symbolTemplate, canvas, x, y, width, height) {
                     strokeHeights.push(5);
                 }
             } 
+            for(let j = 0; j < group.length; j++){
+                let symbol = group[j] % 10;
+                symbols.push(symbol);
+            }
         }
     }
     //set the directions
@@ -145,6 +154,7 @@ function strokeOnes(symbolTemplate, canvas, x, y, width, height) {
     //log
     console.log("heights" , strokeHeights)
     console.log("dirs", strokeDirections)
+    console.log("symbols", symbols)
 }
 
 export function drawSymbolTemplates(symbolTemplates, canvas){
