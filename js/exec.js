@@ -45,13 +45,15 @@ function lettersToNumbers(letters) {
         for (let j = 0; j < syllable.length; j++) {
             let letter = letters[i][j].toLowerCase();
             if(j<syllable.length-1){
-                if(letters[i][j+1].toLowerCase() == "h" && letter = "c"){
+                if(letters[i][j+1].toLowerCase() == "h" && letter == "c"){
                     letter = "ch" 
+                    i++
                 }
             }
             if(j<syllable.length-2){
-                if(letters[i][j+1].toLowerCase() == "c" && letter = "s" && letters[i][j+2].toLowerCase() == "h"){
+                if(letters[i][j+1].toLowerCase() == "c" && letter == "s" && letters[i][j+2].toLowerCase() == "h"){
                     letter = "sch" 
+                    i = i + 2
                 }
             }
             if (letterValues.has(letter)) {
