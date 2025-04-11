@@ -208,8 +208,8 @@ function strokeOnes(symbolTemplate, canvas, x, y, width, height) {
                     strokeHeights.push(45);
                 }
                 if (group.length == 2){
-                    strokeHeights.push(40);
                     strokeHeights.push(50);
+                    strokeHeights.push(40);
                 }
                 if (group.length == 3){
                     strokeHeights.push(54);
