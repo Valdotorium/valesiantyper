@@ -47,13 +47,13 @@ function lettersToNumbers(letters) {
             if(j<syllable.length-1){
                 if(letters[i][j+1].toLowerCase() == "h" && letter == "c"){
                     letter = "ch" 
-                    i++
+                    j = j + 1
                 }
             }
             if(j<syllable.length-2){
                 if(letters[i][j+1].toLowerCase() == "c" && letter == "s" && letters[i][j+2].toLowerCase() == "h"){
                     letter = "sch" 
-                    i = i + 2
+                    j = j + 2
                 }
             }
             if (letterValues.has(letter)) {
