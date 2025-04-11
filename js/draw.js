@@ -46,7 +46,7 @@ function strokeSymbol(id, x, y, scaleX, scaleY, canvas) {
         canvas.beginPath();
         canvas.moveTo(x - 22 * scaleX, y + scaleY / 2);
         canvas.lineTo(x - 22 * scaleX, y + scaleY / 2);
-        canvas.lineTo(x - 22 * scaleX, y - scaleY / 2);
+        canvas.lineTo(x - 21 * scaleX, y - scaleY / 2);
         canvas.moveTo(x, y)
         canvas.lineTo(x - 22 * scaleX,y);
         canvas.stroke();
@@ -279,8 +279,8 @@ export function drawSymbolTemplates(symbolTemplates, ctx,y){
             ctx.lineWidth = 5
             ctx.beginPath();
             ctx.strokeStyle = "black";
-            ctx.moveTo(currentX + symbolWidth / 2, currentY);
-            ctx.lineTo(currentX + symbolWidth / 2, currentY + symbolHeight);
+            ctx.moveTo(currentX + symbolWidth / 2 + 1.5, currentY);
+            ctx.lineTo(currentX + symbolWidth / 2 - 1.5, currentY + symbolHeight);
             ctx.stroke();
         }
 
