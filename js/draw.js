@@ -280,7 +280,7 @@ export function drawSymbolTemplates(symbolTemplates, ctx,y){
             ctx.beginPath();
             ctx.strokeStyle = "black";
             ctx.moveTo(currentX + symbolWidth / 2 + 2, currentY);
-            ctx.lineTo(currentX + symbolWidth / 2 - 2 currentY + symbolHeight);
+            ctx.lineTo(currentX + symbolWidth / 2 - 2, currentY + symbolHeight);
             ctx.stroke();
         }
 
