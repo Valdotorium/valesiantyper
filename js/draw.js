@@ -21,7 +21,7 @@ function strokeSymbol(id, x, y, scaleX, scaleY, canvas) {
         canvas.lineWidth = 4
         canvas.beginPath();
         canvas.moveTo(x - 6 * scaleX, y + scaleY / 2.5);
-        canvas.lineTo(x - 6 * scaleX, y - scaleY / 2.5);
+        canvas.lineTo(x - 5 * scaleX, y - scaleY / 2.5);
         canvas.lineTo(x - 18 * scaleX, y + scaleY / 3);
         canvas.stroke();
     }
@@ -96,15 +96,15 @@ function strokeTenSymbol(id, x, y, scaleX, scaleY, canvas) {
         canvas.lineWidth = 4
         canvas.beginPath();
         canvas.moveTo(x + 2 * scaleX, y);
-        canvas.lineTo(x + 2 * scaleX, y + 8 * scaleY);
+        canvas.lineTo(x + 1 * scaleX, y + 8 * scaleY);
         canvas.stroke();
     }
     if (id == 3) {
         
-        canvas.moveTo(x, y);
+        canvas.moveTo(x+2, y);
         canvas.lineTo(x, y + 30 * scaleY);
         canvas.stroke();
-        canvas.lineTo(x + 28 * scaleX, y + 30 * scaleY);
+        canvas.lineTo(x + 27 * scaleX, y + 30 * scaleY);
         canvas.stroke();
     }
 }
@@ -279,8 +279,8 @@ export function drawSymbolTemplates(symbolTemplates, ctx,y){
             ctx.lineWidth = 5
             ctx.beginPath();
             ctx.strokeStyle = "black";
-            ctx.moveTo(currentX + symbolWidth / 2 + 1.5, currentY);
-            ctx.lineTo(currentX + symbolWidth / 2 - 1.5, currentY + symbolHeight);
+            ctx.moveTo(currentX + symbolWidth / 2 + 2, currentY);
+            ctx.lineTo(currentX + symbolWidth / 2 - 2 currentY + symbolHeight);
             ctx.stroke();
         }
 
