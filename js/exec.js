@@ -44,6 +44,16 @@ function lettersToNumbers(letters) {
         let syllableNumbers = [];
         for (let j = 0; j < syllable.length; j++) {
             let letter = letters[i][j].toLowerCase();
+            if(j<syllable.length-1){
+                if(letters[i][j+1].toLowerCase() == "h" && letter = "c"){
+                    letter = "ch" 
+                }
+            }
+            if(j<syllable.length-2){
+                if(letters[i][j+1].toLowerCase() == "c" && letter = "s" && letters[i][j+2].toLowerCase() == "h"){
+                    letter = "sch" 
+                }
+            }
             if (letterValues.has(letter)) {
                 syllableNumbers.push(letterValues.get(letter));
             }
