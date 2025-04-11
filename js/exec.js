@@ -132,5 +132,31 @@ textBox.oninput = function() {
     ctx.fillStyle = "white";
     ctx.fill();
     let symbolTemplates = translateStringToSymbols(textBox.value)
-    drawSymbolTemplates(symbolTemplates, ctx);
+    //seperate symbol templates into arrays of up to 15 symbols
+    let symbolTemplatesArray = [];
+    for (let i = 0; i < symbolTemplates.length; i++) {
+        if (i % 15 == 0) {
+            symbolTemplatesArray.push([symbolTemplates[i]]);
+        } else {
+            symbolTemplatesArray[symbolTemplatesArray.length - 1].push(symbolTemplates[i]);
+
+        }
+    }
+    //clear the canvas
+    
+    c.height =  60 + symbolTemplatesArray.length * 70
+
+    var canvasWidth = c.width;
+    var canvasHeight = c.height;
+    ctx.fillStyle = "white";
+    ctx.fillRect(0,0 , canvasWidth, canvasHeight);
+
+
+
+    console.log("sta:", symbolTemplatesArray);
+    for (let i = 0; i < symbolTemplatesArray.length; i++) {
+        console.log("y of line: ", 10 + i * 68);
+        drawSymbolTemplates(symbolTemplatesArray[i], ctx, 10 + i * 68);
+        
+    }
 }

@@ -1,15 +1,100 @@
+function strokeSymbol(id, x, y, scaleX, scaleY, canvas) {
+    //scaleY is in pixels
+    //scaleX is a multiplier
+    if (id==0){
+        canvas.lineWidth = 4
+        canvas.beginPath();
+        canvas.moveTo(x, y + scaleY/2.25);
+        canvas.lineTo(x - 18 * scaleX, y + scaleY / 2.25);
+        canvas.lineTo(x - 18 * scaleX, y - scaleY / 2.25);
+        canvas.lineTo(x, y - scaleY / 2.25);
+        canvas.stroke();
+    }
+    if (id==1){
+        canvas.lineWidth = 4
+        canvas.beginPath();
+        canvas.moveTo(x, y);
+        canvas.lineTo(x - 14 * scaleX, y);
+        canvas.stroke();
+    } 
+    if (id==2){
+        canvas.lineWidth = 4
+        canvas.beginPath();
+        canvas.moveTo(x - 6 * scaleX, y + scaleY / 2.5);
+        canvas.lineTo(x - 6 * scaleX, y - scaleY / 2.5);
+        canvas.lineTo(x - 18 * scaleX, y + scaleY / 3);
+        canvas.stroke();
+    }
+    if (id==3){
+        canvas.lineWidth = 4
+        canvas.beginPath();
+        canvas.moveTo(x - 4 * scaleX, y + scaleY / 3)
+        canvas.lineTo(x - 22 * scaleX, y + scaleY / 3);
+        canvas.lineTo(x - 18 * scaleX, y - scaleY / 3);
+        canvas.stroke();
+    }
+    if (id==4){
+        canvas.lineWidth = 4
+        canvas.beginPath();
+        canvas.moveTo(x - 4 * scaleX, y - scaleY / 3)
+        canvas.lineTo(x - 22 * scaleX, y - scaleY / 3);
+        canvas.lineTo(x - 18 * scaleX, y + scaleY / 3);
+        canvas.stroke();
+    }
+    if (id==5){
+        canvas.lineWidth = 4
+        canvas.beginPath();
+        canvas.moveTo(x - 22 * scaleX, y + scaleY / 2);
+        canvas.lineTo(x - 22 * scaleX, y + scaleY / 2);
+        canvas.lineTo(x - 22 * scaleX, y - scaleY / 2);
+        canvas.moveTo(x, y)
+        canvas.lineTo(x - 22 * scaleX,y);
+        canvas.stroke();
+    }
+    if (id==6){
+        canvas.lineWidth = 4
+        canvas.beginPath();
+        canvas.moveTo(x - 6 * scaleX, y + scaleY / 3);
+        canvas.lineTo(x - 14 * scaleX, y - scaleY / 3);
+        canvas.stroke();
+    }
+    if (id==7){
+        canvas.lineWidth = 4
+        canvas.beginPath();
+        canvas.moveTo(x - 6 * scaleX, y - scaleY / 3);
+        canvas.lineTo(x - 14 * scaleX, y + scaleY / 3);
+        canvas.stroke();
+    }
+    if (id==8){
+        canvas.lineWidth = 4
+        canvas.beginPath();
+        canvas.moveTo(x , y - (scaleY / 4) * scaleX);
+        canvas.lineTo(x - 22 * scaleX, y + (scaleY / 4) * scaleX);
+        canvas.stroke();
+    }
+    if (id==9){
+        canvas.lineWidth = 4
+        canvas.beginPath();
+        canvas.moveTo(x , y + (scaleY / 4) * scaleX);
+        canvas.lineTo(x - 22 * scaleX, y - (scaleY / 3) * scaleX);
+        canvas.stroke();
+    }
+
+}
+
 function strokeTenSymbol(id, x, y, scaleX, scaleY, canvas) {
     if(id < 3){
         canvas.lineWidth = 4
         canvas.beginPath();
         canvas.moveTo(x, y);
-        canvas.lineTo(x + 32 * scaleX, y);
+        canvas.lineTo(x + 28 * scaleX, y);
         canvas.stroke();
     }
 
     if (id == 2) {
         //add a short vertical line at the end of the already existing one
         canvas.lineWidth = 4
+        canvas.beginPath();
         canvas.moveTo(x + 2 * scaleX, y);
         canvas.lineTo(x + 2 * scaleX, y + 8 * scaleY);
         canvas.stroke();
@@ -19,7 +104,7 @@ function strokeTenSymbol(id, x, y, scaleX, scaleY, canvas) {
         canvas.moveTo(x, y);
         canvas.lineTo(x, y + 30 * scaleY);
         canvas.stroke();
-        canvas.lineTo(x + 32 * scaleX, y + 30 * scaleY);
+        canvas.lineTo(x + 28 * scaleX, y + 30 * scaleY);
         canvas.stroke();
     }
 }
@@ -38,14 +123,22 @@ function strokeTens(symbolTemplate, canvas, x, y, width, height) {
         strokePositions = [{xOffset: 0, yOffset: height / 2}, {xOffset: width, yOffset: height / 2}, {xOffset: 0, yOffset: 0}, {xOffset: width, yOffset: 0}];
     }
     for (let i = 0; i < strokePositions.length; i++) {
-        let ten = Math.floor(groupedNumbers[i]/10);
+        console.log("tens for symbol: " + symbolTemplate.groupedNumbers);
+        let ten;
+        try{
+            ten = Math.floor(groupedNumbers[i][0]/10);
+        } catch {
+            ten = Math.floor(groupedNumbers[i]/10);
+        }
+
+        
 
         let xOffset = strokePositions[i].xOffset;
         let yOffset = strokePositions[i].yOffset;
         let startX = x + xOffset;
         let startY = y + yOffset;
 
-        if (ten == 0 || groupedNumbers[i] > 32 || groupedNumbers[i] == undefined) {
+        if (ten == 0 || groupcount == 0) {
             continue
         } else {
             if(i%2 == 0){
@@ -71,9 +164,14 @@ function strokeTens(symbolTemplate, canvas, x, y, width, height) {
 function strokeOnes(symbolTemplate, canvas, x, y, width, height) {
     let groupcount = symbolTemplate.groupcount;
     let groupedNumbers = symbolTemplate.groupedNumbers;
+    // the y position of the symbols
     let strokeHeights = [];
+    // the side that the symbols are drawn on
     let strokeDirections = [];
+    // the symbols that are drawn
     let symbols = [];
+    //the scaling of the symbols on the y axis
+    let symbolScales = [];
 
     if (groupcount === 0) {
         return;
@@ -97,6 +195,7 @@ function strokeOnes(symbolTemplate, canvas, x, y, width, height) {
             }
             for(let j = 0; j < group.length; j++){
                 let symbol = group[j] % 10;
+                symbolScales.push(7+Math.floor(9/group.length));
                 symbols.push(symbol);
             }
         }
@@ -113,9 +212,9 @@ function strokeOnes(symbolTemplate, canvas, x, y, width, height) {
                     strokeHeights.push(50);
                 }
                 if (group.length == 3){
-                    strokeHeights.push(55);
+                    strokeHeights.push(54);
                     strokeHeights.push(45);
-                    strokeHeights.push(55);
+                    strokeHeights.push(36);
                 }
 
             } else {
@@ -134,6 +233,7 @@ function strokeOnes(symbolTemplate, canvas, x, y, width, height) {
             } 
             for(let j = 0; j < group.length; j++){
                 let symbol = group[j] % 10;
+                symbolScales.push(5+Math.floor(7/group.length));
                 symbols.push(symbol);
             }
         }
@@ -151,40 +251,48 @@ function strokeOnes(symbolTemplate, canvas, x, y, width, height) {
         }
     }
 
-    //log
-    console.log("heights" , strokeHeights)
-    console.log("dirs", strokeDirections)
-    console.log("symbols", symbols)
+    //draw the symbols
+    for (let i = 0; i < symbols.length; i++) {
+        let id = symbols[i];
+        let scaleY = symbolScales[i];
+        let symbolCenterX = x + width / 2;
+        let symbolCenterY = y + strokeHeights[i];
+        strokeSymbol(id, symbolCenterX, symbolCenterY, strokeDirections[i], scaleY, canvas);
+    }
 }
 
-export function drawSymbolTemplates(symbolTemplates, canvas){
+export function drawSymbolTemplates(symbolTemplates, ctx,y){
+    var canvas = document.getElementById('canvas');
     let canvasWidth = canvas.width;
     let canvasHeight = canvas.height;
-    let currentX = 10
-    let currentY = 10
-    let symbolWidth = 60;
+    let symbolWidth = 50;
     let symbolHeight = 60;
-    //clear the canvas
-    canvas.fillStyle = "white";
-    canvas.clearRect(0, 0, canvasWidth, canvasHeight);
+
+    let currentX = canvasWidth / 2 - symbolTemplates.length * symbolWidth / 2;
+    let currentY = y;
+
     //draw the symbol templates on the canvas
     for (let i = 0; i < symbolTemplates.length; i++) {
         let symbolTemplate = symbolTemplates[i];
         //draw the center line if the symbol is a letter
         if(symbolTemplate.groupedNumbers[0][0] != 33){
-            canvas.lineWidth = 5
-            canvas.beginPath();
-            canvas.strokeStyle = "black";
-            canvas.moveTo(currentX + symbolWidth / 2, currentY);
-            canvas.lineTo(currentX + symbolWidth / 2, currentY + symbolHeight);
-            canvas.stroke();
+            ctx.lineWidth = 5
+            ctx.beginPath();
+            ctx.strokeStyle = "black";
+            ctx.moveTo(currentX + symbolWidth / 2, currentY);
+            ctx.lineTo(currentX + symbolWidth / 2, currentY + symbolHeight);
+            ctx.stroke();
         }
 
-        strokeTens(symbolTemplate, canvas, currentX, currentY, symbolWidth, symbolHeight);
-        strokeOnes(symbolTemplate, canvas, currentX, currentY, symbolWidth, symbolHeight);
+        strokeTens(symbolTemplate, ctx, currentX, currentY, symbolWidth, symbolHeight);
+        strokeOnes(symbolTemplate, ctx, currentX, currentY, symbolWidth, symbolHeight);
 
         //move to next symbol
-        currentX += symbolWidth + 5;
+        if(symbolTemplate.groupedNumbers.length == 1){
+            currentX += symbolWidth / 2 + 5;
+        } else {
+            currentX += symbolWidth + 5;
+        }
 
     }
 }

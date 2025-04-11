@@ -30,11 +30,30 @@
     padding: 0;
     font-size: 6vmin;
     background-color: #283236;
-    width: 70vmax;
-    margin:5vmax;
+    width: 70vw;
+    margin:5vh;
     color: #BBBBD5;
     box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;    border-radius: 1vmax;
     border: #101015;
+}
+.text{
+    font-family: Roboto Mono;
+    margin: 0;
+    padding: 0;
+    font-size: 5vmin;
+    width: 70vw;
+    margin:5vw;
+    color: #BBBBD5;
+
+}
+.smalltext{
+    font-family: Roboto Mono;
+    margin: 0;
+    padding: 0;
+    font-size: 2.5vmin;
+    width: 70vw;
+    margin:5vw;
+    color: #BBBBD5;
 }
 #controls{
     font-family: Roboto Mono;
@@ -42,7 +61,7 @@
     
     font-size: 2vmax;
     background-color: #424860;
-    width:80vmax;
+    width:80vw;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;    
     border: #101015;
     border-radius: 1vmax;
@@ -60,4 +79,21 @@
     border:none;
     border: #101015;
     border-radius: 1vmax;
+}
+
+#canvas{    font-family: Roboto Mono;
+    margin-top: 2vh;
+    padding-right: 6vw;
+    padding-left: 6vw;
+    padding-bottom: 2vh;
+    padding-top: 2vh;
+    font-size: 6vmin;
+    background-color: #424860;
+    width:68vw;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;    
+    border: #101015;
+    border-radius: 1vw;
+    align-content: center;
+    text-align: center;
+    color: #BBBBD5;
 }

@@ -38,10 +38,14 @@
         <script src="js/show_alts.js"></script>
     </div>
     <div id="center">
-        <div id="textbox"><label for="input">Input Syllables</label><input type="text" id="text" title="input number or equation"></div>
-        <canvas id="canvas" width="1100" height="500"></canvas>
+        <div id="textbox"><label for="input" class="text">Input Syllables</label><input type="text" id="text" title="input number or equation"></div>
+        <p class="smalltext">
+            Rules: separate syllables with -, words with spaces. There currently is no support for valesian symbols with more than 4 "tens" or 12 characters.
+        </p>
+        <canvas id="canvas" width="1000" height="200"></canvas>
         <script type="module" src="js/draw.js"></script>
         <script type="module" src="js/exec.js"></script>
+
     </div>
 </body>
 </html>
