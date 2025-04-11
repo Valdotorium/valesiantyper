@@ -14,7 +14,7 @@ function strokeSymbol(id, x, y, scaleX, scaleY, canvas) {
         canvas.lineWidth = 4
         canvas.beginPath();
         canvas.moveTo(x, y);
-        canvas.lineTo(x - 14 * scaleX, y);
+        canvas.lineTo(x - 12 * scaleX, y);
         canvas.stroke();
     } 
     if (id==2){
@@ -69,14 +69,14 @@ function strokeSymbol(id, x, y, scaleX, scaleY, canvas) {
         canvas.lineWidth = 4
         canvas.beginPath();
         canvas.moveTo(x , y - (scaleY / 4) * scaleX);
-        canvas.lineTo(x - 22 * scaleX, y + (scaleY / 4) * scaleX);
+        canvas.lineTo(x - 18 * scaleX, y + (scaleY / 4) * scaleX);
         canvas.stroke();
     }
     if (id==9){
         canvas.lineWidth = 4
         canvas.beginPath();
         canvas.moveTo(x , y + (scaleY / 4) * scaleX);
-        canvas.lineTo(x - 22 * scaleX, y - (scaleY / 3) * scaleX);
+        canvas.lineTo(x - 18 * scaleX, y - (scaleY / 3) * scaleX);
         canvas.stroke();
     }
 
